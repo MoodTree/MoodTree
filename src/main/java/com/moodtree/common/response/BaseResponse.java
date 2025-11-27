@@ -21,9 +21,9 @@ public class BaseResponse<T> implements ResponseStatus {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private final T result;
 
-    public BaseResponse(ResponseStatus status) {
-        this.code = status.getCode();
-        this.message = status.getMessage();
+    public BaseResponse(ResponseStatus responsestatus) {
+        this.code = responsestatus.getCode();
+        this.message = responsestatus.getMessage();
         this.result = null;
     }
 
@@ -32,9 +32,10 @@ public class BaseResponse<T> implements ResponseStatus {
         this.message = SUCCESS.getMessage();
         this.result = result;
     }
-    public BaseResponse(ResponseStatus status, T result) {
-        this.code = status.getCode();
-        this.message = status.getMessage();
+
+    public BaseResponse(ResponseStatus responsestatus, T result) {
+        this.code = responsestatus.getCode();
+        this.message = responsestatus.getMessage();
         this.result = result;
     }
 

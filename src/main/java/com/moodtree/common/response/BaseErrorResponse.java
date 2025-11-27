@@ -21,14 +21,14 @@ public class BaseErrorResponse implements ResponseStatus {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private final LocalDateTime timestamp;
 
-    public BaseErrorResponse(ResponseStatus status) {
-        this.code = status.getCode();
-        this.message = status.getMessage();
+    public BaseErrorResponse(ResponseStatus responsestatus) {
+        this.code = responsestatus.getCode();
+        this.message = responsestatus.getMessage();
         this.timestamp = LocalDateTime.now();
     }
 
-    public BaseErrorResponse(ResponseStatus status, String message) {
-        this.code = status.getCode();
+    public BaseErrorResponse(ResponseStatus responsestatus, String message) {
+        this.code = responsestatus.getCode();
         this.message = message;
         this.timestamp = LocalDateTime.now();
     }
