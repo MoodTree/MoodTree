@@ -21,4 +21,22 @@
 
     <context:component-scan base-package="com.moodtree" />
     <annotation-driven />
+
+    <annotation-driven>
+        <message-converters>
+            <beans:bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <beans:property name="supportedMediaTypes">
+                    <beans:list>
+                        <beans:value>text/plain;charset=UTF-8</beans:value>
+                        <beans:value>application/json;charset=UTF-8</beans:value>
+                    </beans:list>
+                </beans:property>
+            </beans:bean>
+
+            <beans:bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                <beans:property name="defaultCharset" value="UTF-8"/>
+            </beans:bean>
+        </message-converters>
+    </annotation-driven>
+
 </beans:beans>
